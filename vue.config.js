@@ -6,25 +6,22 @@ module.exports = defineConfig({
   configureWebpack: {
     plugins: [
       new ModuleFederationPlugin({
-        name: 'my_project',
+        name: 'myProject',
         filename: 'remoteEntry.js',
         exposes: {
           './HelloWorld': './src/components/HelloWorld.vue'
         },
-        shared: {
-          vue: {
-            singleton: true,
-            requiredVersion: '^2.7.0',
-            eager: false
-          }
-        }
       })
-    ]
+    ], 
   },
   devServer: {
     port: 8080,
+    host: 'localhost',
     headers: {
-      'Access-Control-Allow-Origin': '*'
-    }
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+    },
+    allowedHosts: 'all'
   }
 })
