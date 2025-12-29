@@ -3,6 +3,7 @@ const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlug
 
 module.exports = defineConfig({
   transpileDependencies: true,
+  publicPath: 'https://aaa-pi-indol.vercel.app/',
   configureWebpack: {
     plugins: [
       new ModuleFederationPlugin({
