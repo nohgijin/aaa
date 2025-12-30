@@ -9,7 +9,7 @@ module.exports = defineConfig({
         name: 'otherHrProject',
         filename: 'remoteEntry.js',
         remotes: {
-          hrProject: `hrLnb@https://hr-work.local.hiworks.com:8081/remoteEntry.js`,
+          hrProject: `hrLnb@http://feature-lnb-hr-work.devoffice.hiworks.com/remoteEntry.js`,
         },
       })
     ], 
