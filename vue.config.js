@@ -3,26 +3,15 @@ const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlug
 
 module.exports = defineConfig({
   transpileDependencies: true,
-  publicPath: 'https://aaa-pi-indol.vercel.app/',
   configureWebpack: {
     plugins: [
       new ModuleFederationPlugin({
-        name: 'myProject',
+        name: 'otherHrProject',
         filename: 'remoteEntry.js',
-        exposes: {
-          './HelloWorld': './src/components/HelloWorld.vue'
+        remotes: {
+          hrProject: `hrLnb@https://hr-work.local.hiworks.com:8081/remoteEntry.js`,
         },
       })
     ], 
   },
-  devServer: {
-    port: 8080,
-    host: 'localhost',
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
-    },
-    allowedHosts: 'all'
-  }
 })
